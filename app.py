@@ -277,7 +277,7 @@ def add_animation_js():
 @st.cache_resource
 def load_keras_model():
     try:
-        model = load_model('modelo_neumonia.keras')
+        model = load_model(model_path)
         return model
     except Exception as e:
         st.error(f"Error al cargar el modelo: {e}")
