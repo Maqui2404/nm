@@ -1,0 +1,222 @@
+/* Estilos principales de la aplicación */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Variables globales */
+:root {
+    --primary-color: #0077b6;
+    --primary-dark: #023e8a;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #2c3e50;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-border-radius: 10px;
+    --transition-normal: all 0.3s ease;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos base */
+* {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Personalización de Streamlit */
+.stApp {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+/* Estilos de contenedores */
+.title-container {
+    background-color: var(--dark-color);
+    padding: 1.5rem;
+    border-radius: var(--card-border-radius);
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.title-container h1 {
+    margin: 0;
+    color: white;
+    font-weight: 700;
+}
+
+.title-container p {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1rem;
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Métricas y resultados */
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.metric-card {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    flex: 1;
+    min-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: scale(1.05);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--dark-color);
+}
+
+.result-normal {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem 0;
+    animation: pulse 2s infinite;
+}
+
+.result-pneumonia {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem 0;
+    animation: pulse 2s infinite;
+}
+
+/* Medidor de confianza */
+.confidence-meter {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.confidence-value {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+/* Carga de archivos */
+.upload-box {
+    border: 2px dashed #adb5bd;
+    border-radius: var(--card-border-radius);
+    padding: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+    transition: var(--transition-normal);
+}
+
+.upload-box:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 119, 182, 0.05);
+}
+
+/* Estilos para botones de Streamlit */
+.stButton > button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: var(--transition-normal);
+}
+
+.stButton > button:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .metrics-container {
+        flex-direction: column;
+    }
+    
+    .metric-card {
+        width: 100%;
+    }
+}
+
